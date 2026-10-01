@@ -18,10 +18,10 @@ But it's in the textbook and is important for the AP test.]
 
 == Section 1.1 -- Functions and Their Graphs
 
-=== Functions; Domain and Range
-
 Functions are a tool for modeling the real world.
 They can be represented by an equation, a graph, a table, or a verbal description.
+
+=== Functions; Domain and Range
 
 In each case, the value of one variable depends on the value of another.
 In most cases, $y$ is a function of $x$, symbolically represented as $y = f(x)$.
