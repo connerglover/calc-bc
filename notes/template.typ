@@ -704,6 +704,9 @@ h4.subsection{color:var(--accent);font-size:1.1rem;margin:1.8rem 0 .6rem}
 .plane{text-align:center;margin:1.2rem 0}
 .plane svg{display:block;margin:0 auto}
 math[display=block]{margin:.9rem 0}
+table{border-collapse:collapse;margin:1.2rem auto;border-top:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent)}
+th,td{padding:.45rem .8rem;text-align:left;vertical-align:middle}
+thead th,tr:first-child > th{border-bottom:1px solid var(--accent)}
 .top-link{position:fixed;right:1.2rem;bottom:1.2rem;background:var(--accent);color:#fff;
 padding:.45rem .8rem;border-radius:999px;font-size:.85rem;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 @media (max-width:640px){.toc ol ol,.chapter-toc{columns:1}.cover h1{font-size:2.2rem}.chapter h2{font-size:1.8rem}}
@@ -755,7 +758,33 @@ padding:.45rem .8rem;border-radius:999px;font-size:.85rem;box-shadow:0 2px 8px r
   set heading(numbering: none)
   set list(indent: 0.5em, body-indent: 0.6em)
   set enum(indent: 0.5em, body-indent: 0.6em)
-  set table(stroke: 0.5pt + luma(170), inset: 6pt)
+  // Tables follow the textbook: a heavy rule above and below, a thin one under
+  // the bold header, no vertical lines.
+  let rule = (if print { _grays } else { theme }).accent
+  set table(stroke: none, inset: (x: 0.7em, y: 0.55em), align: left + horizon)
+  show table: it => {
+    let f = it.fields()
+    let children = f.remove("children")
+    // Already rebuilt: the last child is the closing rule added below.
+    if children.len() == 0 or children.last().func() == table.hline { return it }
+    let first = children.first()
+    if first.func() == table.header {
+      let h = first.fields()
+      let cells = h.remove("children").map(c => {
+        if c.func() == table.cell {
+          let cf = c.fields()
+          let body = cf.remove("body")
+          table.cell(..cf, strong(body))
+        } else if c.func() in (table.hline, table.vline) { c } else { strong(c) }
+      })
+      // Inside the header so the rule repeats with it on a new page.
+      children.at(0) = table.header(..h, ..cells, table.hline(stroke: 0.5pt + rule))
+    }
+    // Display math in a cell sits with the column instead of centering.
+    show math.equation.where(block: true): set align(start)
+    let t = table(..f, table.hline(stroke: 0.9pt + rule), ..children, table.hline(stroke: 0.9pt + rule))
+    if _html() { t } else { align(center, t) }
+  }
   show math.equation.where(block: true): set block(above: 0.95em, below: 0.95em)
   show heading.where(level: 1): _chapter-heading
   show heading.where(level: 2): _section-heading

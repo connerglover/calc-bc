@@ -50,7 +50,7 @@ To graph a function, plot the points $(x,y)$ that satisfy the equation on a Cart
 === Representing a Function Numerically
 
 Another way functions can be represented is _numerically_ through a table of values.
-Using this table, a graph of the function cab be sketched.
+Using this table, a graph of the function can be sketched.
 A graph containing only the points in the table is called a _scatterplot_.
 
 === The Vertical Line Test for a Function
@@ -61,7 +61,7 @@ If $a$ is in the domain of the function $f$, then the vertical line $x=a$ will i
 === Piecewise-Defined Functions
 
 Sometimes a function is described in pieces by using different formulas on different parts of its domain.
-It's denotated by the following.
+It's written as
 
 $ f(x) = cases(
   g(x) & x < -1,
@@ -87,7 +87,8 @@ Functions can be categorized by their geometric symmetry to simplify algebraic a
 + If $f(-x)=-f(x)$ for all $x$ in $D(f)$, then $f$ is said to be an _odd function of $x$_.
 ]
 
-The graph of an even function is _symmetric about the $y$-axis_, and the graph of an odd function _symmetric about the origin_. A graph is symmetric about the origin if a rotation of $180 degree$ about the origin leaves the graph unchanged.
+The graph of an even function is _symmetric about the $y$-axis_, and the graph of an odd function is _symmetric about the origin_.
+A graph is symmetric about the origin if a rotation of $180 degree$ about the origin leaves the graph unchanged.
 
 === Common Functions
 
@@ -99,7 +100,7 @@ A _linear function_ is a function of the form $f(x) = m x + b,$ where $m$ and $b
 Its graph is a line with slope $m$ and $y$-intercept $b$.
 
 Linear functions are special because their rate of change is constant.
-The $b$'s cancel and the $x$'s cancel, so the average rate of change between _any_ two points is $m$.
+The $b$'s cancel and the factor $x_2 - x_1$'s cancels, so the average rate of change between _any_ two points is $m$.
 No other kind of function has this property.
 
 #formula(title: "Slope-intercept form")[
@@ -120,22 +121,22 @@ Depending on the value of $a$, the function can behave in several ways.
 
 In the case of $f(x) = x^a$, where $a$ is a positive integer, the domain is all real numbers and the graph passes through $(0, 0)$ and $(1, 1)$.
 If $a$ is even, the graph of the function is even, and its range is $[0, oo)$.
-If $a$ is odd, the graph of the function is odd, and its range is $[-oo, oo)$.
+If $a$ is odd, the graph of the function is odd, and its range is $(-oo, oo)$.
 As $a$ increases, the graph gets flatter on $(-1, 1)$ and steeper for $|x| > 1$.
 
-In the case of $f(x) = x^a$, where $a$ is a negative integer, the function is $1\/x^(-a)$
+In the case of $f(x) = x^a$, where $a$ is a negative integer, the function is $1\/x^(-a)$ and $0$ is excluded from its domain.
 If $a$ is even, the graph of the function is even, increasing for negative $x$, decreasing for positive $x$, and its range is the positive real numbers.
 If $a$ is odd, the graph of the function is odd and decreasing on each side of zero.
 
 In the case of $f(x) = x^a$, where $a = p\/q$ is a fraction in lowest terms, the function is $(root(q, x))^p$.
 If $q$ is even, the domain is the nonnegative real numbers, since even roots of negative numbers are undefined.
 If $q$ is odd, the domain is all real numbers.
-If $p$ is even, the range is the nonnegative real numbers.
+If $p$ is even, the range is the nonnegative real numbers (positive if $a < 0$).
 If $a$ is negative, zero is also excluded from the domain.
 
 ==== Polynomials
 
-A _polynomial_ is a function of the form $f(x) = a_n x^n + a_(n-1) x^(n-1) + ... a_1 x + a_0$, where $n$ is a non negative integer, called the degree, and the number $a_0, a_1,...a_n$ are real constants, called the coefficients.
+A _polynomial_ is a function of the form $f(x) = a_n x^n + a_(n-1) x^(n-1) + dots.c + a_1 x + a_0$, where $n$ is a nonnegative integer, called the degree, and the numbers $a_0, a_1, dots.c, a_n$ are real constants, called the coefficients.
 The domain is $(-oo,oo)$ for all polynomials.
 
 ==== Rational Functions
@@ -146,11 +147,11 @@ The domain is all real numbers for which $q(x) != 0$.
 ==== Algebraic Functions
 
 An _algebraic function_ is a function constructed from polynomials using algebraic operations (addition, multiplication, division, taking roots).
-All rational functions are algebraic, but some more complicated algebraic functions exist.
+All rational functions are algebraic, but not all algebraic functions are rational.
 
 ==== Trigonometric Functions
 
-The six basic _trigonometric function_ are functions that relate an angle to a ratio of side lengths in a right triangle.
+The six basic _trigonometric functions_ are functions that relate an angle to a ratio of side lengths in a right triangle.
 They are discussed further in Section 1.3.
 
 ==== Exponential Functions
@@ -161,22 +162,138 @@ They are discussed further in Section 1.4.
 ==== Logarithmic Functions
 
 A _logarithmic function_ is a function of the form $f(x) = log_a x$, where the base $a != 1$ is a positive constant.
-They are the _inverse function_ of exponential functions.
+They are the _inverse functions_ of exponential functions.
 They are discussed further in Section 1.5.
 
 ==== Transcendental Functions
 
-A _transcendental function_ is a broad definition for many non-algebraic functions, including trigonometric functions, inverse trigonometric, exponential, logarithmic functions, and many other functions. 
+A _transcendental function_ is any non-algebraic functions, such as the trigonometric functions, inverse trigonometric, exponential, logarithmic functions. 
 
 == Section 1.2 -- Combining Functions; Shifting and Scaling Graphs
 
+Functions can be combined or transformed in many ways to form new functions and better model real-world situations.
+
 === Sums, Differences, Products, and Quotients
+
+Functions can be added, subtracted, multiplied, and divided to produce new functions. Functions can also be multiplied by constants.
+Suppose $f$ and $g$ are functions and $c$ is a real number.
+
+#table(
+  columns: 3,
+  table.header[Functions][Formula][Domain],
+  [$f + g$], [$(f + g)(x) = f(x) + g(x)$], [$D(f) inter D(g)$],
+  [$f - g$], [$(f - g)(x) = f(x) - g(x)$], [$D(f) inter D(g)$],
+  [$f times g$], [$(f times g)(x) = f(x) times g(x)$], [$D(f) inter D(g)$],
+  [$f \/ g$], [$ (f / g)(x) = f(x) / g(x) $], [$D(f) inter D(g)$ at which $g(x) != 0$],
+  [$c times f$], [$(c times f)(x) = c times f(x)$], [$D(f)$]
+)
+
+The operator on the left-hand side represents an operation between functions while the operator on the right-hand side represents an operation between the real numbers $f(x)$ and $g(x)$.
 
 === Composing Functions
 
+Functions can be combined through composition, where the output from one function becomes the input to another.
+
+#definition(title: "Function composition")[
+  Suppose $f$ and $g$ are functions.
+
+  $ (f compose g)(x) = f(g(x)) $
+
+  is the composition of $f$ and $g$.
+  The domain of $f compose g$ consists of the numbers $x$ in $D(g)$ for which $g(x)$ lies in the domain of $f$.
+]
+
 === Shifting a Graph of a Function
 
+Functions can be shifted by adding a constant to either the output of the existing function or the input variable.
+
+#formula(title: "Vertical Shifts")[
+  #columns(2)[
+    $y = f(x) + k$
+
+    #colbreak()
+
+    Shifts the graph of $f$ _up_ $k$ units if $k > 0$\
+    Shifts the graph of $f$ _down_ $abs(k)$ units if $k < 0$
+  ]
+  
+]
+
+#formula(title: "Horizontal Shifts")[
+  #columns(2)[
+    $y = f(x + h)$
+
+    #colbreak()
+
+    Shifts the graph of $f$ _left_ $h$ units if $h > 0$\
+    Shifts the graph of $f$ _right_ $abs(h)$ units if $h < 0$
+  ]
+]
+
 === Scaling and Reflecting a Graph of a Function
+
+Functions can be scaled by multiplying either the output of the existing function or the input variable by a constant $c$, where $c > 1$.
+Reflections across the coordinate axes are special cases where $c = -1$.
+
+#formula(title: "Vertical stretch")[
+  #columns(2)[
+    $y = c f(x)$
+
+    #colbreak()
+
+    Stretches the graph of $f$ vertically by a factor of $c$.
+  ]
+]
+
+#formula(title: "Vertical compression")[
+  #columns(2)[
+    $y = 1/c f(x)$
+
+    #colbreak()
+
+    Compresses the graph of $f$ vertically by a factor of $c$.
+  ]
+]
+
+#formula(title: "Horizontal stretch")[
+  #columns(2)[
+    $y = f(x\/c)$
+
+    #colbreak()
+
+    Stretches the graph of $f$ horizontally by a factor of $c$.
+  ]
+]
+
+#formula(title: "Horizontal compression")[
+  #columns(2)[
+    $y = f(c x)$
+
+    #colbreak()
+
+    Compresses the graph of $f$ horizontally by a factor of $c$.
+  ]
+]
+
+#formula(title: "Vertical reflection")[
+  #columns(2)[
+    $y = -f(x)$
+
+    #colbreak()
+
+    Reflects the graph of $f$ across the $x$-axis.
+  ]
+]
+
+#formula(title: "Horizontal reflection")[
+  #columns(2)[
+    $y = f(-x)$
+
+    #colbreak()
+
+    Reflects the graph of $f$ across the $y$-axis.
+  ]
+]
 
 == Section 1.3 -- Trigonometric Functions
 
