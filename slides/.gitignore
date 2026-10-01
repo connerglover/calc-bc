@@ -1,0 +1,4 @@
+# manim / manim-slides build output
+media/
+slides/
+__pycache__/
