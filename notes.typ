@@ -1,4 +1,6 @@
 #import "template.typ": *
+#import "@preview/cetz:0.5.2"
+#import "@preview/cetz-plot:0.1.4": plot
 #show: notes.with(
   theme: themes.carmel,
   title: "AP Calculus BC",
@@ -10,25 +12,161 @@
 
 = Chapter 1 -- Functions
 
-#note[This chapter is pretty much review from Precalculus. I didn't even study this and took the quiz and got an A, so I think this chapter is supplemental. But it's in the textbook, and the following information relies on this.]
+#note[This chapter is review from Precalculus.
+I think this chapter is mostly supplemental.
+But it's in the textbook and is important for the AP test.]
 
 == Section 1.1 -- Functions and Their Graphs
 
 === Functions; Domain and Range
 
+Functions are a tool for modeling the real world.
+They can be represented by an equation, a graph, a table, or a verbal description.
+
+In each case, the value of one variable depends on the value of another.
+In most cases, $y$ is a function of $x$, symbolically represented as $y = f(x)$.
+The symbol $f$ represents the function, the letter $x$ is the input or, more accurately, _independent variable_, and $y$ is the _dependent variable_ or output value of $f$ at $x$.
+A rule is classified as a function if and only if there is exactly one output for all possible inputs.
+
+#definition()[A _function_ $f$ from a set $D$ to a set $Y$ is a rule that assigns a single value $f(x)$ in $Y$ to each $x$ in $D$.]
+
+The set $D$ represents all possible input values and is called the _domain_. 
+The domain of $f$ would sometimes be denoted by $D(f)$.
+The _natural domain_ is the largest set of real $x$-values for which the formula gives real y-values. 
+
+The set of all output values $f(x)$ as $x$ varies through $D$ is called the _range_ of the function.
+A function is said to be _real-valued_ when its range is a set of real numbers.
+
+Often a function is given by a formula that describes how to calculate the output value from the input variable.
+For instance, $y = x^2$.
+
 === Graphs of Functions
+
+If $f$ is a function with domain $D$, its _graph_ contains the points in the Cartesian plane whose coordinates are the input-output pairs for $f$.
+In set notation the graph is ${(x, f(x))|x in D}$.
+
+To graph a function, plot the points $(x,y)$ that satisfy the equation on a Cartesian plane, and draw a smooth curve (labeled with its equation) through the plotted points.
 
 === Representing a Function Numerically
 
+Another way functions can be represented is _numerically_ through a table of values.
+Using this table, a graph of the function cab be sketched.
+A graph containing only the points in the table is called a _scatterplot_.
+
 === The Vertical Line Test for a Function
+
+A function can only have one value $f(x)$ for each $x$ in $D(f)$. 
+If $a$ is in the domain of the function $f$, then the vertical line $x=a$ will intersect the graph of $f$ at a single point $(a, f(a))$.
 
 === Piecewise-Defined Functions
 
+Sometimes a function is described in pieces by using different formulas on different parts of its domain.
+It's denotated by the following.
+
+$ f(x) = cases(
+  g(x) & x < -1,
+  h(x) & -1 <= x < 1,
+  i(x) & x >= 1,
+) $
+
 === Increasing and Decreasing Functions
+
+Functions are classified based on how they respond to increasing inputs to understand the direction of change in a system.
+
+#definition[Let $f$ be a function defined on an interval $I$ and let $x_1$ and $x_2$ be two distinct points in $I$.
++ If $f(x_2) > f(x_1)$ whenever $x_1 < x_2$, then $f$ is said to be _increasing_ on $I$. 
++ If $f(x_2) < f(x_1)$ whenever $x_1 < x_2$, then $f$ is said to be _decreasing_ on $I$.
+]
 
 === Even Functions and Odd Functions: Symmetry
 
+Functions can be categorized by their geometric symmetry to simplify algebraic analysis and graphing.
+
+#definition[Let $f$ be a function and let $y = f(x)$
++ If $f(-x)=f(x)$ for all $x$ in $D(f)$, then $f$ is said to be an _even function of $x$_.
++ If $f(-x)=-f(x)$ for all $x$ in $D(f)$, then $f$ is said to be an _odd function of $x$_.
+]
+
+The graph of an even function is _symmetric about the $y$-axis_, and the graph of an odd function _symmetric about the origin_. A graph is symmetric about the origin if a rotation of $180 degree$ about the origin leaves the graph unchanged.
+
 === Common Functions
+
+A variety of important types of functions are frequently encountered in calculus.
+
+==== Linear Functions
+
+A _linear function_ is a function of the form $f(x) = m x + b,$ where $m$ and $b$ are constants.
+Its graph is a line with slope $m$ and $y$-intercept $b$.
+
+Linear functions are special because their rate of change is constant.
+The $b$'s cancel and the $x$'s cancel, so the average rate of change between _any_ two points is $m$.
+No other kind of function has this property.
+
+#formula(title: "Slope-intercept form")[
+  $ y = m x + b $
+]
+
+Since the slope is constant, a single point $(x_1, y_1)$ and the slope $m$ can model the whole line.
+This is made simple with the point-slope form.
+
+#formula(title: "Point-slope form")[
+  $ y - y_1 = m (x - x_1) $
+]
+
+==== Power Functions
+
+A _power function_ is a function of the form $f(x) = x^a$, where $a$ is constant.
+Depending on the value of $a$, the function can behave in several ways.
+
+In the case of $f(x) = x^a$, where $a$ is a positive integer, the domain is all real numbers and the graph passes through $(0, 0)$ and $(1, 1)$.
+If $a$ is even, the graph of the function is even, and its range is $[0, oo)$.
+If $a$ is odd, the graph of the function is odd, and its range is $[-oo, oo)$.
+As $a$ increases, the graph gets flatter on $(-1, 1)$ and steeper for $|x| > 1$.
+
+In the case of $f(x) = x^a$, where $a$ is a negative integer, the function is $1\/x^(-a)$
+If $a$ is even, the graph of the function is even, increasing for negative $x$, decreasing for positive $x$, and its range is the positive real numbers.
+If $a$ is odd, the graph of the function is odd and decreasing on each side of zero.
+
+In the case of $f(x) = x^a$, where $a = p\/q$ is a fraction in lowest terms, the function is $(root(q, x))^p$.
+If $q$ is even, the domain is the nonnegative real numbers, since even roots of negative numbers are undefined.
+If $q$ is odd, the domain is all real numbers.
+If $p$ is even, the range is the nonnegative real numbers.
+If $a$ is negative, zero is also excluded from the domain.
+
+==== Polynomials
+
+A _polynomial_ is a function of the form $f(x) = a_n x^n + a_(n-1) x^(n-1) + ... a_1 x + a_0$, where $n$ is a non negative integer, called the degree, and the number $a_0, a_1,...a_n$ are real constants, called the coefficients.
+The domain is $(-oo,oo)$ for all polynomials.
+
+==== Rational Functions
+
+A _rational function_ is a function of the form $f(x) = p(x)/q(x)$, where p and q are polynomials.
+The domain is all real numbers for which $q(x) != 0$.
+
+==== Algebraic Functions
+
+An _algebraic function_ is a function constructed from polynomials using algebraic operations (addition, multiplication, division, taking roots).
+All rational functions are algebraic, but some more complicated algebraic functions exist.
+
+==== Trigonometric Functions
+
+The six basic _trigonometric function_ are functions that relate an angle to a ratio of side lengths in a right triangle.
+They are discussed further in Section 1.3.
+
+==== Exponential Functions
+
+An _exponential function_ is a function of the form $f(x) = a^x$, where $a > 0$ and $a != 1$.
+They are discussed further in Section 1.4.
+
+==== Logarithmic Functions
+
+A _logarithmic function_ is a function of the form $f(x) = log_a x$, where the base $a != 1$ is a positive constant.
+They are the _inverse function_ of exponential functions.
+They are discussed further in Section 1.5.
+
+==== Transcendental Functions
+
+A _transcendental function_ is a broad definition for many non-algebraic functions, including trigonometric functions, inverse trigonometric, exponential, logarithmic functions, and many other functions. 
 
 == Section 1.2 -- Combining Functions; Shifting and Scaling Graphs
 
