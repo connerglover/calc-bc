@@ -93,7 +93,7 @@
 // -------------------------------------------------------- heading parsing --
 // Headings are written "Chapter 3 -- Derivatives" / "Section 3.2 -- ...".
 // The textbook skips sections, so numbers are read from the heading rather
-// than counted.
+// than counted. The Prologue's section is numbered "P.1".
 #let _plain(it) = {
   if it == none { "" }
   else if type(it) == str { it }
@@ -106,7 +106,7 @@
 
 #let _split(body) = {
   let s = _plain(body).trim()
-  let m = s.match(regex("^(?:Chapter|Section|Unit)\s+([0-9]+(?:\.[0-9]+)?)\s*(?:[-–—:]+\s*(.*))?$"))
+  let m = s.match(regex("^(?:Chapter|Section|Unit)\s+((?:[0-9]+|P)(?:\.[0-9]+)?)\s*(?:[-–—:]+\s*(.*))?$"))
   if m == none { (num: none, title: s) }
   else { (num: m.captures.at(0), title: m.captures.at(1, default: none)) }
 }
