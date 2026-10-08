@@ -16,31 +16,146 @@
 
 === Increments and Slope
 
+Unlike algebra, calculus doesn't deal with exact values or inequalities.
+Instead it deals with changing quantities, rates of change, and Increments.
+
+#definition(title:"Increments")[
+  The change in a variable is called an _increment_ in that variable.
+  Let x be a variable.
+
+  $ Delta x = x_2 - x_1$
+]
+
+Using increments, you cna find the _rate of change_ or slop of any _linear function_.
+ 
+#definition(title: "Slope")[
+  Let $(x_1, y_1)$ and $(x_2, y_2)$ be two points on the graph of a linear function.
+
+  $ m = (Delta y)/(Delta x) "or" (y_2 - y_1)/(x_2 - x_1) $
+
+  Such that $m$ is the slope.
+]
+
 === Point-Slope Equation of a Linear Function
+
+There are many ways to represent a linear function between two variables, but the most useful way in calculus is the Point-Slope Form.
+
+#formula(title: "Point-slope form")[
+  $ y - y_1 = m(x - x_1) $
+]
 
 === Other Linear Equation Forms
 
+Other forms will rarely be shown because the point-slope equation conveys the information so well, and it's very convenient for Calculus.
+
+The slope-intercept form is very useful for modeling real world problems and is very popular in Algebra.
+
+#formula(title: "Slope-intercept form")[
+  $ y = m x + b $
+]
+
+The standard form is useful in linear algebra.
+
+#formula(title: "Standard form")[
+  $ A x + B y = C $
+]
+
+Contrary to the textbook (and Mr. T's hellish notes), the general linear form is it's own distinct thing.
+I don't understand how the use for this differs from standard form, but I felt the need to distinguish between the two.
+
+#formula(title: "General linear formula")[
+  $ A x + B y + C = 0$
+]
+
 === Parallel and Perpendicular Lines
+
+Linear functions cna have parallel and perpendicular lines.
+For a line to be parallel, it's slope must be equal.
+For a line to be perpendicular, it's slope must be reciprocated and reflected.
+
+#definition(title: "Perpendicular slope")[
+  Let $m_1$ be a constant representing the slope of a linear equation.
+
+  $ m_2 = - 1 / m_1 $
+]
 
 === Applications of Linear Functions
 
-=== Solving Two Linear Equations Simultaneously
+// I need to fix this
+
+Modeling a data set as a linear equation is a common use and relatively simple.
+Find the slope and then use one pair fo values with the point slope form to determine the equation.
+
+=== Solving Two Linear Equations Simultaneously 
+
+// I need to fix this
+
+Just like simplify it so one variable is on the same side and then divide by the coefficient so the system has both equations equal y or x or whatever.
+Then, set them equal to each other, solve for some variable, and then input it into the equation from before that was set to equal y and that's y.
+Boom. I don't wanna explain it but it's pretty easy.
 
 == Section 0.2 -- Functions and Graphs
 
 === Functions
 
+A function is a rule that relates exactly one output to every input in it's domain.
+A function can be used to model nearly any relationship where one variable depends on another.
+
+#definition(title: "Function")[
+  $ y = f(x) $
+]
+
 === Domains and Ranges
+
+Every function has two important sets of values: the domain $D$ and the range $R$.
+The domain is defined as the largest set of $x$ values for which the formula gives real $y$ values.
+The range is defined as every valid output for a given function.
+Domains and ranges of many real-valued functions of a real variables re intervals or combinations of interval. //rephrase
+The intervals may be open, closed, or half-open and finite or infinite. //rephrase
 
 === Viewing and Interpreting Graphs
 
 === Even Functions and Odd Functions -- Symmetry
 
+The graphs of _even_ and _odd_ functions have important symmetry properties.
+
+#definition(title: "Even Function")[
+  $ f(-x) = x $
+]
+
+#definition(title: "Odd Function")[
+  $ f(-x) = -x $
+]
+
+Functions can be neither even or odd, and, in the specific case of $f(x)=0$, can be both even and odd.
+
+You can also evaluate function party with the graph.
+Even functions are symmetric with respect to the $y$-axis.
+Odd functions are symmetric about the origin.
+
 === Piecewise-Defined Functions
+
+Piecewise functions use more than one formula to define the output.
+
+#definition(title:"Piecewise-defined functions")[
+  $ f(x) = cases(
+    g(x) "if" x > a,
+    h(x) "otherwise",
+  ) $
+]
 
 === Absolute Value Function
 
+#definition(title:"Absolute function")[
+  $ |x| = cases(
+    -x "if" x < 0,
+    x "if" x >= 0
+  ) $
+]
+
 === Composite Functions
+
+ 
 
 == Section 0.3 -- Exponential Functions
 
